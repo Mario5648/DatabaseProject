@@ -2,6 +2,7 @@ from flask import Flask, redirect,url_for,request,render_template
 import requests
 import get_request
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -28,6 +29,6 @@ def decide(URL):
     #if the URL contains the YT code
     if URL[0] == "R" and URL[1]=="E" and URL[2]=="Q":
         DB_response = get_request.get(URL[4:])
-    return str(DB_response)
+    return DB_response
 
 app.run()
