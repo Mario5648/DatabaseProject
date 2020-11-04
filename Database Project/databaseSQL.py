@@ -33,10 +33,11 @@ c.execute("""CREATE TABLE product(
 conn.commit()
 
 
-c.execute("INSERT INTO product VALUES (123456, '123 hill dr', 'apple',100.00, 'C:\\Users\\mario\\Desktop\\DatabaseProject-main\\DatabaseProject\\Database Project\\ip2.jpg', 'Very good deal', 'new' , 'new' ,'Iphone 6' , 6785)")
-c.execute("INSERT INTO product VALUES (987654, '123 hill dr', 'apple',80.00, 'C:\\Users\\mario\\Desktop\\DatabaseProject-main\\DatabaseProject\\Database Project\\ip1.jpg', 'trying to sell small crack on screen', 'used' , 'decent' ,'Iphone 8' , 6785)")
-c.execute("INSERT INTO product VALUES (654321, '123 hill dr', 'apple',150.00, 'C:\\Users\\mario\\Desktop\\DatabaseProject-main\\DatabaseProject\\Database Project\\ip2.jpg', 'Good condition. I never took it out of the case, now I want to upgrade ', 'used' , 'Great' ,'Iphone 6' , 6785)")
-c.execute("INSERT INTO product VALUES (654398, '123 hill dr', 'apple',300.00, 'C:\\Users\\mario\\Desktop\\DatabaseProject-main\\DatabaseProject\\Database Project\\ip1.jpg', 'Great condition hardly used', 'used' , 'decent' ,'Iphone 11' , 6785)")
+c.execute("INSERT INTO product VALUES (123456, '123 hill dr', 'apple',100.00, './ip2.jpg', 'Very good deal', 'new' , 'new' ,'Iphone 6' , 6785)")
+c.execute("INSERT INTO product VALUES (987654, '123 hill dr', 'apple',80.00, './ip1.jpg', 'trying to sell small crack on screen', 'used' , 'decent' ,'Iphone 8' , 6785)")
+c.execute("INSERT INTO product VALUES (654321, '123 hill dr', 'apple',150.00, './ip2.jpg', 'Good condition. I never took it out of the case, now I want to upgrade ', 'used' , 'Great' ,'Iphone 6' , 6785)")
+c.execute("INSERT INTO product VALUES (654398, '123 hill dr', 'apple',300.00, './ip1.jpg', 'Great condition hardly used', 'used' , 'decent' ,'Iphone 11' , 6785)")
+c.execute("INSERT INTO product VALUES (000001, '123 hill dr', 'apple',9999.00, './ip2.jpg', 'Great condition hardly used', 'used' , 'decent' ,'Iphone 11' , 6785)")
 
 
 

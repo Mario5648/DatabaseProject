@@ -4,7 +4,14 @@ import json
 
 DB_response = ""
 
+"""
+dictionary_to_json
 
+This will take a dictionary
+and it will transform it to
+JSON data. 
+
+"""
 def dictionary_to_json(JSONdictionary):
     dict_string = JSONdictionary
     json_response = json.dumps(dict_string) #dictionary converted to string
@@ -26,7 +33,8 @@ def get(DB_request):
         #Make request to the datbase file and acess the most recent
         conn = sqlite3.connect('product.db')
         c = conn.cursor()
-        c.execute("SELECT * FROM product WHERE Manufacturer == 'apple'")
+        #This will order from most recent to oldest
+        c.execute("SELECT * FROM product ORDER BY Product_ID DESC")
         DB_response = c.fetchmany(4)
         conn.commit()
         conn.close()
