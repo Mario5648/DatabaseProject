@@ -50,7 +50,7 @@ def get(DB_request):
         #call method to convert the dictionary to JSON
         json_response = dictionary_to_json(json_response)
         return json_response
-        
+
     elif DB_request == "JUSTADD":
         #Create an empty dictionary to contain all objects with their attributes
         json_response = {0:{},1:{},2:{},3:{},4:{},5:{},6:{},7:{}}
@@ -60,6 +60,8 @@ def get(DB_request):
             json_response[i]["img_url"] = ""
             json_response[i]["product_title"] = ""
             json_response[i]["price"] = 0.0
+            json_response[i]["productID"] = ""
+
 
         #Make request to the datbase file and acess the most recent
         conn = sqlite3.connect('product.db')
@@ -76,6 +78,33 @@ def get(DB_request):
             json_response[i]["img_url"] = DB_response[i][4]
             json_response[i]["product_title"] = DB_response[i][8]
             json_response[i]["price"] = DB_response[i][3]
+            json_response[i]["productID"] = DB_response[i][0]
+
+        #call method to convert the dictionary to JSON
+        json_response = dictionary_to_json(json_response)
+        return json_response
+
+
+    elif DB_request == "DESKTOPS":
+
+        json_response = {}
+
+        # request the database data
+        conn = sqlite3.connect('product.db')
+        c = conn.cursor()
+        #This will order from most recent to oldest
+        c.execute("SELECT * FROM product ORDER BY Product_ID DESC")
+        DB_response = c.fetchall()
+        conn.commit()
+        conn.close()
+
+
+        for i in range(len(DB_response)):
+            json_response[i] = {}
+            json_response[i]["img_url"] = DB_response[i][4]
+            json_response[i]["product_title"] = DB_response[i][8]
+            json_response[i]["price"] = DB_response[i][3]
+            json_response[i]["productID"] = DB_response[i][0]
 
         #call method to convert the dictionary to JSON
         json_response = dictionary_to_json(json_response)
