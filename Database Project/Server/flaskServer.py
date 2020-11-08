@@ -3,6 +3,8 @@ import requests
 import get_request
 from flask_cors import CORS
 import json
+import addToDatabase
+import verifyDatabase
 
 app = Flask(__name__)
 CORS(app)
@@ -26,9 +28,14 @@ def shutdown():
 @app.route("/<URL>")
 def decide(URL):
     DB_response = ""
-    #if the URL contains the YT code
     if URL[0] == "R" and URL[1]=="E" and URL[2]=="Q":
         DB_response = get_request.get(URL[4:])
-    return DB_response
+        return DB_response
+    elif URL[0] == "A" and URL[1]=="D" and URL[2]=="D":
+        DB_response = addToDatabase.add(URL[4:])
+        return str(DB_response)
+    elif URL[0] == "V" and URL[1]=="R" and URL[2]=="F":
+        DB_response = verifyDatabase.verify(URL[4:])
+        return str(DB_response)
 
 app.run()

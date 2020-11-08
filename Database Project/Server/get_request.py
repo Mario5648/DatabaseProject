@@ -31,7 +31,7 @@ def get(DB_request):
             json_response[i]["price"] = 0.0
 
         #Make request to the datbase file and acess the most recent
-        conn = sqlite3.connect('product.db')
+        conn = sqlite3.connect('webDatabase.db')
         c = conn.cursor()
         #This will order from most recent to oldest
         c.execute("SELECT * FROM product ORDER BY Product_ID DESC")
@@ -64,7 +64,7 @@ def get(DB_request):
 
 
         #Make request to the datbase file and acess the most recent
-        conn = sqlite3.connect('product.db')
+        conn = sqlite3.connect('webDatabase.db')
         c = conn.cursor()
         #This will order from most recent to oldest
         c.execute("SELECT * FROM product ORDER BY Product_ID DESC")
@@ -90,7 +90,7 @@ def get(DB_request):
         json_response = {}
 
         # request the database data
-        conn = sqlite3.connect('product.db')
+        conn = sqlite3.connect('webDatabase.db')
         c = conn.cursor()
         #This will order from most recent to oldest
         c.execute("SELECT * FROM product ORDER BY Product_ID DESC")

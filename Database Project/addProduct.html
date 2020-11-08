@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+<title>User Login</title>
+
+<head>
+<style>
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+  background-color: #60b0f4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.container {
+  padding: 16px;
+  padding-left:30%;
+  padding-right:30%;
+}
+
+span.sgnup {
+  float: right;
+  padding-top: 16px;
+}
+
+
+span.adminLog {
+  float: left;
+  padding-top: 16px;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.sgnup {
+    display: block;
+    float: none;
+  }
+  span.adminLog {
+    display: block;
+    float: none;
+  }
+
+}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="container">
+<label for="title"><b>Title</b></label>
+<input type="text" placeholder="Enter Title (Example: IPhone 6, 64GB)" id="title" required>
+
+<label for="address"><b>Address</b></label>
+<input type="text" placeholder="Enter Address (Example: 1234 sunset ln)" id="address" required>
+
+<label for="manu"><b>Manufacturer</b></label>
+<input type="text" placeholder="Enter Manufacturer (Example: Apple)" id="manu" required>
+
+<label for="price"><b>Price $</b></label>
+<input type="text" placeholder="Enter Price (Ex: 50.00)" id="price" required>
+
+<label for="img"><b>Image</b></label>
+<input type="text" placeholder="Enter Image" id="img" required>
+
+<label for="desc"><b>Description</b></label>
+<textarea id="desc" rows="4" cols="50"></textarea>
+
+<label for="cond"><b>Condition</b></label>
+<select id="cond">
+  <option value="New">New</option>
+  <option value="Used">Used</option>
+  <option value="Refurbished">Refurbished</option>
+  <option value="Great">Great</option>
+  <option value="Good">Good</option>
+  <option value="Fair">Fair</option>
+  <option value="Bad">Bad</option>
+  <option value="For Parts">For Parts</option>
+
+</select>
+
+
+
+<button type="submit" onclick="">Login</button>
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
