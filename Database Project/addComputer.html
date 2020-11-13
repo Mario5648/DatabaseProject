@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-<title>User Login</title>
+<title>Add A Computer</title>
 
 <head>
 <style>
@@ -101,17 +101,75 @@ span.adminLog {
 </select>
 
 
+<label for="type"><b>Type</b></label>
+<select id="type">
+  <option value="Desktop">Desktop</option>
+  <option value="Laptop">Laptop</option>
+</select><br>
+
+<label for="Processor"><b>Processor</b></label>
+<input type="text" placeholder="Enter Processor (Example: Intel i3)" id="Processor" required>
+
+
+<label for="Memory"><b>Memory</b></label>
+<input type="text" placeholder="Enter Memory (Example: DDR3 8GB)" id="Memory" required>
+
+<label for="HardDrive"><b>HardDrive</b></label>
+<input type="text" placeholder="Enter HardDrive (Example: 1TB)" id="HardDrive" required>
+
 
 <button type="submit" onclick="">Add</button>
 </div>
 
 
 
+<script>
+function addProd()
+{
+  var a = document.getElementById('title').value;
+  var b = document.getElementById('address').value;
+  var c = document.getElementById('manu').value;
+  var d = document.getElementById('price').value;
+  var e = document.getElementById('img').value;
+  var f = document.getElementById('desc').value;
+  var g = document.getElementById('cond').value;
+  var h = document.getElementById('type').value;
+  var i = document.getElementById('Processor').value;
+  var j = document.getElementById('Memory').value;
+  var k = document.getElementById('HardDrive').value;
+
+  if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "", f==null|| f=="", g==null || g == "", h == null || h == "", i == null
+  || i == "", j == null || j == "", k == null || k == "") {
+    alert("Please Fill All Required Field");
+    return false;
+  }
 
 
 
 
+  const Http = new XMLHttpRequest();
+  //send to the server/URL
+  var newU = "ADD|PRODCOMP|"+a+"|"+b+"|"+c+"|"+d+"|"+e+"|"+f+"|"+g+"|"+h+"|"+i+"|"+j+"|"+k;
+  const url='http://127.0.0.1:5000/'+newU;
+  Http.open("GET", url);
+  Http.send();
 
+  Http.onreadystatechange = (e) => {
+    var response_code = JSON.parse(Http.response);
+    //0 : user logged in
+    //1 : wrong credentials
+    if(response_code == 0)
+    {
+      alert("Product Added");
+    }else if(response_code == 1)
+    {
+      alert("Error while adding product");
+    }
+  }
+}
+
+
+</script>
 </body>
 
 

@@ -5,6 +5,9 @@ from flask_cors import CORS
 import json
 import addToDatabase
 import verifyDatabase
+import updateDatabase
+
+update_product_data = []
 
 app = Flask(__name__)
 CORS(app)
@@ -37,5 +40,11 @@ def decide(URL):
     elif URL[0] == "V" and URL[1]=="R" and URL[2]=="F":
         DB_response = verifyDatabase.verify(URL[4:])
         return str(DB_response)
+    elif URL[0] == "U" and URL[1]=="P" and URL[2]=="D":
+        DB_response = updateDatabase.update(URL[4:])
+        update_product_data=DB_response[1]
+        return str(DB_response[0])
+    elif URL[0] == "R" and URL[1]=="E" and URL[2]=="T" and URL[3]=="U":
+        return update_product_data
 
 app.run()

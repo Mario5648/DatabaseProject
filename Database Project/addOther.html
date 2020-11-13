@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-<title>User Login</title>
+<title>Add Device</title>
 
 <head>
 <style>
@@ -100,6 +100,17 @@ span.adminLog {
 
 </select>
 
+<label for="type"><b>Type</b></label>
+<select id="type">
+  <option value="Game Console">Game Console</option>
+  <option value="Phone">Phone</option>
+  <option value="Tablet">Tablet</option>
+  <option value="Camera">Camera</option>
+  <option value="Speakers">Speakers</option>
+  <option value="Televisions">Televisions</option>
+  <option value="Other">Other</option>
+
+</select><br>
 
 
 <button type="submit" onclick="">Add</button>
@@ -110,7 +121,50 @@ span.adminLog {
 
 
 
+<script>
+function addProd()
+{
+  var a = document.getElementById('title').value;
+  var b = document.getElementById('address').value;
+  var c = document.getElementById('manu').value;
+  var d = document.getElementById('price').value;
+  var e = document.getElementById('img').value;
+  var f = document.getElementById('desc').value;
+  var g = document.getElementById('cond').value;
+  var h = document.getElementById('type').value;
 
+
+  if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "", f==null|| f=="", g==null || g == "", h == null || h == "") {
+    alert("Please Fill All Required Field");
+    return false;
+  }
+
+
+
+
+  const Http = new XMLHttpRequest();
+  //send to the server/URL
+  var newU = "ADD|PRODO|"+a+"|"+b+"|"+c+"|"+d+"|"+e+"|"+f+"|"+g+"|"+h+"|"+i;
+  const url='http://127.0.0.1:5000/'+newU;
+  Http.open("GET", url);
+  Http.send();
+
+  Http.onreadystatechange = (e) => {
+    var response_code = JSON.parse(Http.response);
+    //0 : user logged in
+    //1 : wrong credentials
+    if(response_code == 0)
+    {
+      alert("Product Added");
+    }else if(response_code == 1)
+    {
+      alert("Error while adding product");
+    }
+  }
+}
+
+
+</script>
 
 </body>
 

@@ -16,23 +16,72 @@ BLOB - DATA
 """
 
 
-c.execute("""CREATE TABLE product(
+
+c.execute("""CREATE TABLE PartsAccessories(
             Product_ID integer,
+            Title text,
             Address text,
-           Manufacturer text,
+            Manufacturer text,
             Price real,
             Image text,
             Description text,
             Condition text,
-           Grade text,
-            Title text
+            type text
     )""")
+
 
 #this command will save the above code , but must be ran once per insertion
 conn.commit()
 
+c.execute("""CREATE TABLE Computers(
+            Product_ID integer,
+            Title text,
+            Address text,
+            Manufacturer text,
+            Price real,
+            Image text,
+            Description text,
+            Condition text,
+            type text,
+            Processor text,
+            Memory text,
+            HardDrive text
+
+    )""")
+
+conn.commit()
+
+c.execute("""CREATE TABLE NetServ(
+            Product_ID integer,
+            Title text,
+            Address text,
+            Manufacturer text,
+            Price real,
+            Image text,
+            Description text,
+            Condition text,
+            type text,
+            Processor text,
+            Memory text
+    )""")
+
+conn.commit()
 
 
+c.execute("""CREATE TABLE Other(
+            Product_ID integer,
+            Title text,
+            Address text,
+            Manufacturer text,
+            Price real,
+            Image text,
+            Description text,
+            Condition text,
+            type text,
+
+    )""")
+
+conn.commit()
 
 
 c.execute("""CREATE TABLE users(

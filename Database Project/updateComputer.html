@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+<title>Add A Computer</title>
+
+<head>
+<style>
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+  background-color: #60b0f4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.container {
+  padding: 16px;
+  padding-left:30%;
+  padding-right:30%;
+}
+
+span.sgnup {
+  float: right;
+  padding-top: 16px;
+}
+
+
+span.adminLog {
+  float: left;
+  padding-top: 16px;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.sgnup {
+    display: block;
+    float: none;
+  }
+  span.adminLog {
+    display: block;
+    float: none;
+  }
+
+}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="container">
+<label for="title"><b>Title</b></label>
+<input type="text" placeholder="Enter Title (Example: IPhone 6, 64GB)" id="title" required>
+
+<label for="address"><b>Address</b></label>
+<input type="text" placeholder="Enter Address (Example: 1234 sunset ln)" id="address" required>
+
+<label for="manu"><b>Manufacturer</b></label>
+<input type="text" placeholder="Enter Manufacturer (Example: Apple)" id="manu" required>
+
+<label for="price"><b>Price $</b></label>
+<input type="text" placeholder="Enter Price (Ex: 50.00)" id="price" required>
+
+<label for="img"><b>Image</b></label>
+<input type="file"  id="img" required>
+
+<label for="desc"><b>Description</b></label>
+<textarea id="desc" rows="4" cols="50"></textarea>
+
+<label for="cond"><b>Condition</b></label>
+<select id="cond">
+  <option value="New">New</option>
+  <option value="Used">Used</option>
+  <option value="Refurbished">Refurbished</option>
+  <option value="Great">Great</option>
+  <option value="Good">Good</option>
+  <option value="Fair">Fair</option>
+  <option value="Bad">Bad</option>
+  <option value="For Parts">For Parts</option>
+
+</select>
+
+
+<label for="type"><b>Type</b></label>
+<select id="type">
+  <option value="Desktop">Desktop</option>
+  <option value="Laptop">Laptop</option>
+</select><br>
+
+<label for="Processor"><b>Processor</b></label>
+<input type="text" placeholder="Enter Processor (Example: Intel i3)" id="Processor" required>
+
+
+<label for="Memory"><b>Memory</b></label>
+<input type="text" placeholder="Enter Memory (Example: DDR3 8GB)" id="Memory" required>
+
+<label for="HardDrive"><b>HardDrive</b></label>
+<input type="text" placeholder="Enter HardDrive (Example: 1TB)" id="HardDrive" required>
+
+
+<button type="submit" onclick="">Update</button>
+</div>
+
+
+
+<script>
+function loadData()
+{
+  const Http = new XMLHttpRequest();
+  //send to the server/URL
+  var newU = "RETU";
+  const url='http://127.0.0.1:5000/'+newU;
+  Http.open("GET", url);
+  Http.send();
+
+  Http.onreadystatechange = (e) => {
+    var response_code = JSON.parse(Http.response);
+    console.log(response_code);
+  }
+}
+function addProd()
+{
+  var a = document.getElementById('title').value;
+  var b = document.getElementById('address').value;
+  var c = document.getElementById('manu').value;
+  var d = document.getElementById('price').value;
+  var e = document.getElementById('img').value;
+  var f = document.getElementById('desc').value;
+  var g = document.getElementById('cond').value;
+  var h = document.getElementById('type').value;
+  var i = document.getElementById('Processor').value;
+  var j = document.getElementById('Memory').value;
+  var k = document.getElementById('HardDrive').value;
+
+  if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "", f==null|| f=="", g==null || g == "", h == null || h == "", i == null
+  || i == "", j == null || j == "", k == null || k == "") {
+    alert("Please Fill All Required Field");
+    return false;
+  }
+
+
+
+
+  const Http = new XMLHttpRequest();
+  //send to the server/URL
+  var newU = "ADD|PRODCOMP|"+a+"|"+b+"|"+c+"|"+d+"|"+e+"|"+f+"|"+g+"|"+h+"|"+i+"|"+j+"|"+k;
+  const url='http://127.0.0.1:5000/'+newU;
+  Http.open("GET", url);
+  Http.send();
+
+  Http.onreadystatechange = (e) => {
+    var response_code = JSON.parse(Http.response);
+    //0 : user logged in
+    //1 : wrong credentials
+    if(response_code == 0)
+    {
+      alert("Product Added");
+    }else if(response_code == 1)
+    {
+      alert("Error while adding product");
+    }
+  }
+}
+
+
+</script>
+</body>
+
+
+
+</html>

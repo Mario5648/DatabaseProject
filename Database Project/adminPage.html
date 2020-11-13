@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Shop</title>
+<title>Admin Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -69,8 +69,6 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <p class="w3-left" id="product_title">Product_Title</p>
     <p class="w3-right">
       <a href="#search" class="w3-bar-item w3-button"><i class="fa fa-search"></i> SEARCH</a>
-      <a href="#cart" class="w3-bar-item w3-button"><i class="fa fa-shopping-cart"></i> CART</a>
-      <a href="#login" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LOGIN</a>
     </p>
   </header>
 
@@ -85,13 +83,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <p id="product_Number"># items</p>
   </div>
 
-
-  <button class="w3-button w3-light-grey" onclick="">Sort By Price (Lowest -> Highest)</button>
-  <button class="w3-button w3-light-grey" onclick="">Sort By Price (Highest -> Lowest)</button>
-  <button class="w3-button w3-light-grey" onclick="">Filter By Condition (New)</button>
+  <button class="w3-button w3-light-grey" onclick="">Add Product</button>
   <br><br>
-
-  
   <!-- Product grid -->
   <div class="w3-row">
     <div class="w3-col l3 s6">
@@ -99,7 +92,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <div class="w3-display-container">
           <img alt="" src="./staticImages/placeholderImage.png" id="Prod1Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">View</button>
+            <button class="w3-button w3-black" onclick="update(Prod1Pic)">Update</button>
+            <button class="w3-button w3-black">Delete</button>
           </div>
         </div>
         <p id="Prod1Title">Title</p>
@@ -109,7 +103,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <div class="w3-display-container">
           <img alt="" src="./staticImages/placeholderImage.png" id="Prod2Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;%">
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">View</button>
+            <button class="w3-button w3-black" onclick="update(Prod2Pic)">Update</button>
+            <button class="w3-button w3-black">Delete</button>
           </div>
         </div>
         <p id="Prod2Title">Title</p>
@@ -122,7 +117,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <div class="w3-display-container">
           <img alt="" src="./staticImages/placeholderImage.png" id="Prod3Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">View</button>
+            <button class="w3-button w3-black" onclick="update(Prod3Pic)">Update</button>
+            <button class="w3-button w3-black">Delete</button>
           </div>
         </div>
         <p id="Prod3Title">Title</p>
@@ -132,7 +128,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <div class="w3-display-container">
           <img alt="" src="./staticImages/placeholderImage.png" id="Prod4Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">View</button>
+            <button class="w3-button w3-black" onclick="update(Prod4Pic)">Update</button>
+            <button class="w3-button w3-black">Delete</button>
           </div>
         </div>
         <p id="Prod4Title">Title</p>
@@ -145,7 +142,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           <div class="w3-display-container">
             <img alt="" src="./staticImages/placeholderImage.png" id="Prod5Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">View</button>
+              <button class="w3-button w3-black" onclick="update(Prod5Pic)">Update</button>
+              <button class="w3-button w3-black">Delete</button>
             </div>
           </div>
           <p id="Prod5Title">Title</p>
@@ -155,7 +153,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           <div class="w3-display-container">
             <img alt="" src="./staticImages/placeholderImage.png" id="Prod6Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">View</button>
+              <button class="w3-button w3-black" onclick="update(Prod6Pic)">Update</button>
+              <button class="w3-button w3-black">Delete</button>
             </div>
           </div>
           <p id="Prod6Title">Title</p>
@@ -168,7 +167,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
             <div class="w3-display-container">
               <img alt="" src="./staticImages/placeholderImage.png" id="Prod7Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
               <div class="w3-display-middle w3-display-hover">
-                <button class="w3-button w3-black">View</button>
+                <button class="w3-button w3-black" onclick="update(Prod7Pic)">Update</button>
+                <button class="w3-button w3-black">Delete</button>
               </div>
             </div>
             <p id="Prod7Title">Title</p>
@@ -178,7 +178,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
             <div class="w3-display-container">
               <img alt="" src="./staticImages/placeholderImage.png" id="Prod8Pic" style="display: block; max-width:180px; max-height:180px; width: auto; height: auto;">
               <div class="w3-display-middle w3-display-hover">
-                <button class="w3-button w3-black">View</button>
+                <button class="w3-button w3-black" onclick="update(Prod8Pic)">Update</button>
+                <button class="w3-button w3-black">Delete</button>
               </div>
             </div>
             <p id="Prod8Title">Title</p>
@@ -295,7 +296,38 @@ function update_products(elementIDPic,elementIDTitle,elementIDPrice,imgSRC,title
 }
 
 
+function update(elementIDPic)
+{
+  var image = document.getElementById(elementIDPic);
+  var productID = image.alt;
 
+
+  const Http = new XMLHttpRequest();
+  //send to the server/URL
+  var newU = "UPD|"+productID;
+  const url='http://127.0.0.1:5000/'+newU;
+  Http.open("GET", url);
+  Http.send();
+
+  Http.onreadystatechange = (e) => {
+    var response_code = JSON.parse(Http.response);
+
+    if(response_code == 0)
+    {
+      alert("Product is a NetServ");
+    }else if(response_code == 1)
+    {
+      alert("Product is a Computer");
+    }else if(response_code == 2)
+    {
+      alert("Product is Parts/Accessory");
+    }else if(response_code == 3)
+    {
+      alert("Product is Other");
+    }
+  }
+
+}
 
 
 var DB_response;
